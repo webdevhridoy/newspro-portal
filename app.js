@@ -1,5 +1,6 @@
 // for category
 const showAllCategories = async () => {
+    
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     const res = await fetch(url);
     const data = await res.json();
@@ -24,6 +25,7 @@ showAllCategories();
 
 // for news specifically
 const loadAllNews = async (id) => {
+    toggleSpinner(true)
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -69,9 +71,19 @@ const displayAllNews = (allNews) => {
         `;
         newsContainer.appendChild(newsDiv);
     });
+    toggleSpinner(false)
 };
 
 loadAllNews();
+
+const toggleSpinner = (isLoading) => {
+    const loaderSpinner = document.getElementById('News-spinner')
+    if (isLoading) {
+        loaderSpinner.classList.remove('d-none')
+    } else {
+        loaderSpinner.classList.add('d-none')
+    }
+}
 
 const newsModal = async (_id) => {
     const url = `https://openapi.programming-hero.com/api/news/${_id}`;
@@ -92,9 +104,10 @@ const modalDetails = (modalNews) => {
     <img src="${modalNews.image_url}" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">Name: ${modalNews.author.name ? modalNews.author.name : 'Not found'}</h5>
-        <p class="card-title">Published Date: ${modalNews.author.published_date}</p>
-        <p class="card-title">Published Date: ${modalNews.details}</p>
-        <p class="card-text">Rating: ${modalNews.rating.number}</p>
+        <p class="card-title"><b>Published Date:</b> ${modalNews.author.published_date}</p>
+        <p class="card-title"><b>Details:</b> ${modalNews.details}</p>
+        <p class="card-text"><b>Rating:</b> ${modalNews.rating.number}</p>
+        <p class="card-text"><b>Views:</b> ${modalNews.total_view}</p>
     </div>
     
     `;
