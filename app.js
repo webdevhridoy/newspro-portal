@@ -79,20 +79,26 @@ const newsModal = async (_id) => {
     const data = await res.json();
     modalDetails(data.data[0]);
 };
-const modalDetails = (news) => {
-    console.log(news);
-    // const modalTitle = document.getElementById('exampleModalLabel');
+
+const modalDetails = (modalNews) => {
+    // console.log(modalNews);
+    const modalTitle = document.getElementById('exampleModalLabel');
+    modalTitle.innerText = modalNews.title;
     const modalDetailsContainer = document.getElementById('news-modal');
     modalDetailsContainer.textContent = '';
     const modalDiv = document.createElement('div');
     modalDiv.innerHTML = `
     
-        <div>
-            <h2>title: ${news.title}</h2>
-        </div>
+    <img src="${modalNews.image_url}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Name: ${modalNews.author.name ? modalNews.author.name : 'Not found'}</h5>
+        <p class="card-title">Published Date: ${modalNews.author.published_date}</p>
+        <p class="card-title">Published Date: ${modalNews.details}</p>
+        <p class="card-text">Rating: ${modalNews.rating.number}</p>
+    </div>
     
     `;
     modalDetailsContainer.appendChild(modalDiv);
 };
 
-newsModal();
+// newsModal();
