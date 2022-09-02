@@ -15,7 +15,7 @@ displayAllCategories = (categories) => {
         li.classList.add = 'nav-link';
         li.innerHTML = `
 
-    <a onclick="loadAllNews('${category.category_id}')" class="nav-link active border-0 " aria-current="page" href="#">${category.category_name}</a>
+    <a onclick="loadAllNews('${category.category_id ? category.category_id : "Not found"}')" class="nav-link active border-0 " aria-current="page" href="#">${category.category_name ? category.category_name : "Not found"}</a>
     `;
 
         newsContainer.appendChild(li);
@@ -42,10 +42,10 @@ const displayAllNews = (allNews) => {
         newsDiv.classList.add('col');
         newsDiv.innerHTML = `
         <div class="card">
-            <img src="${news.thumbnail_url}" class="card-img-top" alt="...">
+            <img src="${news.thumbnail_url ? news.thumbnail_url : "Not found"}" class="card-img-top" alt="...">
             <div class="d-flex justify-content-center align-items-center ">
                 <div class="d-flex justify-content-center align-items-center p-5">
-                    <img style="width:50px; height: 50px" src="${news.author.img
+                    <img style="width:50px; height: 50px" src="${news.author.img ? news.author.img : "Not found"
             }" alt="">
                     <span class="ps-2">${news.author.name ? news.author.name : 'Not found'
             }</span>
@@ -95,19 +95,19 @@ const newsModal = async (_id) => {
 const modalDetails = (modalNews) => {
     // console.log(modalNews);
     const modalTitle = document.getElementById('exampleModalLabel');
-    modalTitle.innerText = modalNews.title;
+    modalTitle.innerText = modalNews.title ? modalNews.title : "Not found";
     const modalDetailsContainer = document.getElementById('news-modal');
     modalDetailsContainer.textContent = '';
     const modalDiv = document.createElement('div');
     modalDiv.innerHTML = `
     
-    <img src="${modalNews.image_url}" class="card-img-top" alt="...">
+    <img src="${modalNews.image_url ? modalNews.image_url : "Not found"}" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">Name: ${modalNews.author.name ? modalNews.author.name : 'Not found'}</h5>
-        <p class="card-title"><b>Published Date:</b> ${modalNews.author.published_date}</p>
-        <p class="card-title"><b>Details:</b> ${modalNews.details}</p>
-        <p class="card-text"><b>Rating:</b> ${modalNews.rating.number}</p>
-        <p class="card-text"><b>Views:</b> ${modalNews.total_view}</p>
+        <p class="card-title"><b>Published Date:</b> ${modalNews.author.published_date ? modalNews.author.published_date : "Not found"}</p>
+        <p class="card-title"><b>Details:</b> ${modalNews.details ? modalNews.details : "Not found"}</p>
+        <p class="card-text"><b>Rating:</b> ${modalNews.rating.number ? modalNews.rating.number : "Not found"}</p>
+        <p class="card-text"><b>Views:</b> ${modalNews.total_view ? modalNews.total_view : "Not found"}</p>
     </div>
     
     `;
