@@ -68,37 +68,30 @@ const displayAllNews = (allNews, cId) => {
                 <img class="img-fluid pb-3" src="${news.thumbnail_url ? news.thumbnail_url : 'Not found'}" class="card-img-top" alt="...">
             </div>
             <div class="card-body col-md-9 col-lg-9 col-12 align-itmes-center">
-                <div class="ps-md-5 ps-sm-3 ps-3 pt-3">
+                <div class="ps-md-5 ps-sm-3 ps-3">
                     <h5 class="card-title fs-4 fs-md-4 fw-bolder">${news.title ? news.title : 'Not Found'}</h5>
-                    <p class="card-text my-3">${news.details.slice(0, 350)}...</p>
+                    <p class="card-text my-3">${news.details.slice(0, 250)}...</p>
                     <button onclick="newsModal('${news._id}')" type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Read More</button>
-
                     <div class="row justify-content-between align-items-center mt-4 pb-3">
 
-                        <div class="col-6 d-flex justify-content-start align-baseline align-items-center">
-                        <div>
-                            <img class="rounded-5" style="width:50px; height: 50px" src="${news.author.img ? news.author.img : 'Not found'}" alt="">
-                        </div>
-                        <div>
-                            <span class="ps-2 text-primary fw-bolder  text-capitalize">${news.author.name ? news.author.name : 'Not found'
-                            }</span> <br>
-                            <span class="ps-2">${news.author.published_date ? news.author.published_date : 'Not found'
-                            }</span>
-                        </div>
-                        </div>
-                        <div class="col-6">
-                        <div class="d-flex justify-content-around align-baseline align-items-center">
-                            <li class="list-unstyled me-3">
-                                <i class="fa-regular fa-eye text-primary"></i> ${news.total_view ? news.total_view : 'Not found'
-                                }
-                            </li>
-                            <li class="list-unstyled me-3">
-                            <i class="fa-solid fa-star text-warning"></i> ${news.rating.number ? news.rating.number : 'Not found'
-                                }
-                            </li>
-                        </div>
-                        </div>
-                    </div>
+                    <div class="col-6 d-flex justify-content-start align-baseline align-items-center">
+                       <div>
+                           <img class="rounded-5" style="width:50px; height: 50px" src="${news.author.img ? news.author.img : 'Not found'}" alt="">
+                       </div>
+                       <div>
+                           <span class="ps-2">${news.author.name ? news.author.name : 'Not found'
+                           }</span>
+                       </div>
+                     </div>
+                     <div class="col-6">
+                       <div>
+                           <li class="list-unstyled me-3">
+                               <i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : 'Not found'
+                               }
+                           </li>
+                       </div>
+                     </div>
+               </div>
                 </div> 
             </div> 
         </div>      
