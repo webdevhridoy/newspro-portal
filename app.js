@@ -12,7 +12,7 @@ const showAllCategories = async () => {
 };
 
 displayAllCategories = (categories) => {
-    console.log(categories);
+    // console.log(categories);
     const newsContainer = document.getElementById('news-categories');
     categories.forEach((category) => {
         const li = document.createElement('li');
