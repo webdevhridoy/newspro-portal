@@ -30,10 +30,6 @@ displayAllCategories = (categories) => {
 };
 showAllCategories();
 
-
-
-
-
 // for news specifically
 const loadAllNews = async (id) => {
     toggleSpinner(true)
@@ -131,7 +127,7 @@ totalNews.appendChild(name);
 
 };
 
-
+// Spinner area
 const toggleSpinner = (isLoading) => {
     const loaderSpinner = document.getElementById('News-spinner')
     if (isLoading) {
