@@ -3,3 +3,29 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+/* categories item link style area */
+.active {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #f1f1f11f;
+    cursor: pointer;
+  }
+
+.active, a:active{
+    color:rgba(0, 0, 255, 0.83) !important;
+}
+/* categories item link style end */
+
+
+/* modal details button style */
+.custom-link {
+    transition: 0.5s;
+}
+
+.custom-link:hover{
+    transform: scale(1.2);
+}
+
+/* modal details button end */
