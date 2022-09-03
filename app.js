@@ -16,7 +16,7 @@ displayAllCategories = (categories) => {
     const newsContainer = document.getElementById('news-categories');
     categories.forEach((category) => {
         const li = document.createElement('li');
-        li.classList.add('active-color')
+        li.classList.add('active-color');
         li.innerHTML = `
 
     <a onclick="loadAllNews('${category.category_id ? category.category_id : 'Not found'
@@ -81,20 +81,20 @@ const displayAllNews = (allNews, cId) => {
                         </div>
                         <div>
                             <span class="ps-2 text-primary fw-bolder  text-capitalize">${news.author.name ? news.author.name : 'Not found'
-                            }</span> <br>
+            }</span> <br>
                             <span class="ps-2">${news.author.published_date ? news.author.published_date : 'Not found'
-                            }</span>
+            }</span>
                         </div>
                         </div>
                         <div class="col-6">
                         <div class="d-flex justify-content-around align-baseline align-items-center">
                             <li class="list-unstyled me-3">
                                 <i class="fa-regular fa-eye text-primary"></i> ${news.total_view ? news.total_view : 'Not found'
-                                }
+            }
                             </li>
                             <li class="list-unstyled me-3">
                             <i class="fa-solid fa-star text-warning"></i> ${news.rating.number ? news.rating.number : 'Not found'
-                                }
+            }
                             </li>
                         </div>
                         </div>
