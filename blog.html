@@ -56,11 +56,14 @@
                   </h2>
                   <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                     <div class="accordion-body">
-                      <strong>var:</strong> Scope essentially means where these variables are available for use. var declarations are globally scoped or function/locally scoped. <br>
-                      - var variables can be re-declared and updated
-                      - var variables are hoisted to the top of their scope and initialized with a value of undefined.
-                      <strong>let:</strong> let is now preferred for variable declaration. It's no surprise as it comes as an improvement to var declarations. It also solves the problem with var that we just covered. <br>
-                      <strong></strong>
+                      <strong>var:</strong> Scope essentially means where these variables are available for use. var declarations are globally scoped or function/locally scoped.
+                      <br>
+                      - var variables can be re-declared and updated <br>
+                      - var variables are hoisted to the top of their scope and initialized with a value of undefined. <br><br>
+                      
+                      So,when a variable is taken into a function by the var keyword, that variable will be scoped to the function. What does that mean? That means then that the variable cannot be used outside the function. The function will then be its world or area, it can be used anywhere within the function by mixing as much as you like.  <br><br>
+                      <strong>let:</strong> let is now preferred for variable declaration. It's no surprise as it comes as an improvement to var declarations. It also solves the problem with var that we just covered. <br><br>
+                      <strong>Const:</strong>This keyword is used when we want to specify the value of something. var is slightly different from let because its value cannot be changed. Can be declared only once.
                     </div>
                   </div>
                 </div>
@@ -72,7 +75,7 @@
                   </h2>
                   <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      <strong>Difference:</strong>Regular functions created using function declarations or expressions are 'constructible' and 'callable'. Since regular functions are constructors, they can be called using the 'new' keyword. However, arrow functions are only 'callable' and not constitutive. Thus, we will get a run-time error when trying to create a non-constructible arrow function using the new keyword.
                     </div>
                   </div>
                 </div>
@@ -101,5 +104,15 @@
         crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </body>
+
+    <!-- footer area start -->
+
+    <footer class="py-5 mt-5 bg-primary border-top-2 shadow ">
+      <div class="container text-center text-white">
+          <p>Copyright 2022 News Pro</p>
+      </div>
+  </footer>
+
+  <!-- footer area end -->
 
 </html>
