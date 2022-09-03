@@ -26,6 +26,7 @@ displayAllCategories = (categories) => {
 
         newsContainer.appendChild(li);
     });
+
 };
 showAllCategories();
 
@@ -44,8 +45,10 @@ const loadAllNews = async (id) => {
     }
 
 };
+
 const displayAllNews = (allNews) => {
-    // console.log(allNews);
+    console.log(allNews);
+
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
     allNews.forEach((news) => {
@@ -84,9 +87,21 @@ const displayAllNews = (allNews) => {
         newsContainer.appendChild(newsDiv);
     });
     toggleSpinner(false)
-};
 
+// Total news count section      
+const newsDiv = [];
+const totalNews = (document.getElementById("news-count").innerText = allNews.length);
+for(let i = 0; i > 0; i++){
+const name = newsDiv[i].totalNews;
+const span = document.createElement("span");
+span.innerHTML = `
+  <p>${newsDiv}</p>
+`;
+totalNews.appendChild(name);
+    }
+};
 // loadAllNews();
+
 
 const toggleSpinner = (isLoading) => {
     const loaderSpinner = document.getElementById('News-spinner')
