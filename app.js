@@ -14,7 +14,7 @@ const showAllCategories = async () => {
 };
 
 displayAllCategories = (categories) => {
-    // console.log(categories);
+    console.log(categories);
     const newsContainer = document.getElementById('news-categories');
     categories.forEach((category) => {
         const li = document.createElement('li');
@@ -30,6 +30,10 @@ displayAllCategories = (categories) => {
 };
 showAllCategories();
 
+
+
+
+
 // for news specifically
 const loadAllNews = async (id) => {
     toggleSpinner(true)
@@ -38,7 +42,7 @@ const loadAllNews = async (id) => {
         const res = await fetch(url);
         const data = await res.json();
         // console.log(data.data[0]);
-        displayAllNews(data.data);
+        displayAllNews(data.data, id);
     }
     catch (error) {
         console.log(error);
@@ -46,11 +50,15 @@ const loadAllNews = async (id) => {
 
 };
 
-const displayAllNews = (allNews) => {
-    console.log(allNews);
+const displayAllNews = (allNews, cId) => {
+    // console.log(allNews);
 
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
+
+    allNews.sort((a, b) => {
+        return b.total_view - a.total_view
+    })
     allNews.forEach((news) => {
         // console.log(news);
         const newsDiv = document.createElement('div');
@@ -99,8 +107,29 @@ span.innerHTML = `
 `;
 totalNews.appendChild(name);
     }
+
+    // Showing categroy name by using category id
+    const categoryName = async () => {
+        const url = `https://openapi.programming-hero.com/api/news/categories`;
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        // console.log(data.data[0]);
+        displayCategory(data.data.news_category);
+    }
+    catch (error) {
+        console.log(error);
+        }
+    }
+    const displayCategory = news => {
+        const categoryName = document.getElementById('category-name')
+        categoryName.innerText = news[cId - 1].category_name;
+    }
+
+    categoryName()
+
+
 };
-// loadAllNews();
 
 
 const toggleSpinner = (isLoading) => {
@@ -147,4 +176,6 @@ const modalDetails = (modalNews) => {
     modalDetailsContainer.appendChild(modalDiv);
 };
 
+
+loadAllNews('08');
 // newsModal();
