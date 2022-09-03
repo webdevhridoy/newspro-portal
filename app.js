@@ -20,7 +20,7 @@ displayAllCategories = (categories) => {
         li.innerHTML = `
 
     <a onclick="loadAllNews('${category.category_id ? category.category_id : 'Not found'
-            }')" class=" text-decoration-none text-dark d-inline-block  px-3  active border-0 " href="#">${category.category_name ? category.category_name : 'Not found'
+            }')" class=" text-decoration-none text-dark d-inline-block  px-3  active border-0 " style="cursor: pointer;">${category.category_name ? category.category_name : 'Not found'
             }</a>
     `;
 
